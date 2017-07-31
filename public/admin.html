@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="btnAddGame" onclick="addGame()">Add game</button>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+<script lang="javascript">
+    var config = {
+        apiKey: "AIzaSyBX-6C-ju_GJEkvmqDd-gBEfIAP8_3fjZQ",
+        authDomain: "solnet-stop.firebaseapp.com",
+        databaseURL: "https://solnet-stop.firebaseio.com",
+        projectId: "solnet-stop",
+        storageBucket: "solnet-stop.appspot.com",
+        messagingSenderId: "97790153221"
+    };
+    firebase.initializeApp(config);
+
+    function addGame() {
+        var newGame = {};
+        newGame.stop = false;
+        firebase.database().ref('/games').push(newGame);
+    }
+</script>
+
+</html>
