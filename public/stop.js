@@ -10,9 +10,8 @@
     };
     firebase.initializeApp(config);
     var database = firebase.database(),
-        roundNumber,
-        gameKey, databaseUserName, roundDatabaseUrl, roundDataUrl;
-    //DOM
+        roundNumber, gameKey, playerName, gameUrl, roundDataUrl;
+
     document.getElementById('gameBody').style.display = 'none';
     document.getElementById('name').addEventListener('keyup', addRoundData);
     document.getElementById('electronics').addEventListener('keyup', addRoundData);
@@ -22,8 +21,8 @@
 
     database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
         gameKey = snapshot.key;
-        roundDatabaseUrl = 'games/' + gameKey;
-        database.ref(roundDatabaseUrl + '/roundNumber').on('value', function (snapshot) {
+        gameUrl = 'games/' + gameKey;
+        database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
             roundNumber = snapshot.val();
             console.log('roundNumber', roundNumber);
             manageStopDatabase();
@@ -32,8 +31,8 @@
 
     //TODO probably not needed
     function manageStopDatabase() {
-        roundDataUrl = roundDatabaseUrl + '/' + roundNumber + '/' + databaseUserName + '/';
-        database.ref(roundDatabaseUrl + '/' + roundNumber + '/stop').on('value', stopGame);
+        roundDataUrl = gameUrl + '/' + roundNumber + '/' + playerName + '/';
+        database.ref(gameUrl + '/' + roundNumber + '/stop').on('value', stopGame);
     }
 
     function stopGame(snapshot) {
@@ -50,14 +49,14 @@
     }
 
     function btnStopClick() {
-        database.ref(roundDatabaseUrl + '/' + roundNumber + '/stop').set(true);
+        database.ref(gameUrl + '/' + roundNumber + '/stop').set(true);
         roundNumber++;
-        database.ref(roundDatabaseUrl + '/roundNumber').set(roundNumber);
+        database.ref(gameUrl + '/roundNumber').set(roundNumber);
         manageStopDatabase();
     }
 
     function startGameClick() {
-        databaseUserName = document.getElementById('userName').value;
+        playerName = document.getElementById('userName').value;
         manageStopDatabase();
         document.getElementById('gameBody').style.display = 'block';
         document.getElementById('introduction').style.display = 'none';
