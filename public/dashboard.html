@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="dashboard">
+
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+<script lang="javascript">
+    var config = {
+        apiKey: "AIzaSyBX-6C-ju_GJEkvmqDd-gBEfIAP8_3fjZQ",
+        authDomain: "solnet-stop.firebaseapp.com",
+        databaseURL: "https://solnet-stop.firebaseio.com",
+        projectId: "solnet-stop",
+        storageBucket: "solnet-stop.appspot.com",
+        messagingSenderId: "97790153221"
+    };
+    firebase.initializeApp(config);
+    firebase.database().ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
+        var game = snapshot.val();
+        console.log(game.length);
+        console.log(snapshot.val());
+    });
+</script>
+
+</html>
