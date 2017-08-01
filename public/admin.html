@@ -25,7 +25,8 @@
 
     function addGame() {
         var newGame = {};
-        newGame.stop = false;
+        newGame.name = 'stop-game';
+        newGame.roundNumber = 0;
         firebase.database().ref('/games').push(newGame);
     }
 </script>
