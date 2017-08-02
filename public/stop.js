@@ -10,55 +10,71 @@
     };
     firebase.initializeApp(config);
     var database = firebase.database(),
-        roundNumber, gameKey, playerName, gameUrl, roundDataUrl;
-
+        dialog = document.querySelector('dialog'),
+        roundNumber, unsubscribeStop, gameKey, playerName, gameUrl, roundDataUrl;
+    dialog.querySelector('.close').addEventListener('click', function () {
+        dialog.close();
+    });
     document.getElementById('gameBody').style.display = 'none';
     document.getElementById('name').addEventListener('keyup', addRoundData);
     document.getElementById('electronics').addEventListener('keyup', addRoundData);
     document.getElementById('place').addEventListener('keyup', addRoundData);
+    document.getElementById('famousPerson').addEventListener('keyup', addRoundData);
     document.getElementById('btnStop').addEventListener('click', btnStopClick);
     document.getElementById('btnStart').addEventListener('click', startGameClick);
-
-    database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
-        gameKey = snapshot.key;
-        gameUrl = 'games/' + gameKey;
-        database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
-            roundNumber = snapshot.val();
-            console.log('roundNumber', roundNumber);
-            manageStopDatabase();
-        });
-    });
+    document.getElementById('btnClear').addEventListener('click', clearFieldsClick);
 
     //TODO probably not needed
-    function manageStopDatabase() {
-        roundDataUrl = gameUrl + '/' + roundNumber + '/' + playerName + '/';
-        database.ref(gameUrl + '/' + roundNumber + '/stop').on('value', stopGame);
-    }
-
-    function stopGame(snapshot) {
-        var inputs = document.getElementsByTagName('input');
-        for (var index = 0; index < inputs.length; ++index) {
-            inputs[index].disabled = snapshot.val();
-            //TODO Show STOP for a few seconds and clear screen to round 2
-            inputs[index].value = '';
-        }
+    function createNewRound() {
+        database.ref(gameUrl + '/' + getRoundNumber() + '/stop').on('value', stopGame);
     }
 
     function addRoundData($event) {
-        database.ref(roundDataUrl + [$event.srcElement.id]).set($event.srcElement.value);
+        database.ref(getRoundDataUrl() + [$event.srcElement.id]).set($event.srcElement.value);
+    }
+
+    function stopGame(snapshot) {
+        if (snapshot.val()) {
+            dialog.showModal();
+        }
     }
 
     function btnStopClick() {
-        database.ref(gameUrl + '/' + roundNumber + '/stop').set(true);
+        database.ref(gameUrl + '/' + getRoundNumber() + '/stop').off('value');
+        database.ref(gameUrl + '/' + getRoundNumber() + '/stop').set(true);
         roundNumber++;
         database.ref(gameUrl + '/roundNumber').set(roundNumber);
-        manageStopDatabase();
+        createNewRound();
     }
 
     function startGameClick() {
         playerName = document.getElementById('userName').value;
-        manageStopDatabase();
+        database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
+            gameUrl = 'games/' + snapshot.key;
+            database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
+                roundNumber = snapshot.val();
+                createNewRound();
+            });
+        });
         document.getElementById('gameBody').style.display = 'block';
         document.getElementById('introduction').style.display = 'none';
     }
+
+    function clearFieldsClick() {
+        var inputs = document.getElementsByTagName('input');
+        for (var index = 0; index < inputs.length; ++index) {
+            inputs[index].value = '';
+        }
+    }
+
+    function getRoundNumber() {
+        console.log(roundNumber);
+        return roundNumber;
+    }
+
+    function getRoundDataUrl() {
+        console.log(gameUrl + '/' + playerName);
+        return gameUrl + '/' + playerName + '/' + getRoundNumber() + '/';
+    }
+
 }());

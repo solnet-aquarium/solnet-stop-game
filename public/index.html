@@ -3,42 +3,91 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#0051A0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solnet Stop!</title>
+  <title>Stop! - Game</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="game"> 
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        Stop!
+      </div>
+    </header>
+    <main class="mdl-layout__content" style="flex: 1 0 auto;">
+      <div id="game">
+      </div>
+      <div id="score">
+      </div>
+      <div id="introduction">
+        <div id="card">
+          <h5>How to play?</h5>
+          <p> A letter will be ramdomly selected. Type a word for each of the 4 different categories that starts with that letter.
+            The player that gets most correct words in the least amount of time wins!</p>
+        </div>
+        <div id="card">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="userName">
+            <label class="mdl-textfield__label" for="userName">Whats your name?</label>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnStart">go!</button>
+        </div>
+      </div>
+      <div id="gameBody">
+        <div id="card">
+          <div class="clear_link">
+            <button class="mdl-button mdl-js-button mdl-button--icon" id="btnClear">
+              <i class="material-icons">clear_all</i>
+            </button>
 
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="name">
+            <label class="mdl-textfield__label" for="name">Name of a person:</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="electronics">
+            <label class="mdl-textfield__label" for="electronics">Electronic/gadget:</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="famousPerson">
+            <label class="mdl-textfield__label" for="famousPerson">Famous New Zealand person:</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="place">
+            <label class="mdl-textfield__label" for="place">Place in New Zealand:</label>
+          </div>
+        </div>
+        <div id="card" class="center_button">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="btnStop">STOP!</button>
+        </div>
+      </div>
+    </main>
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">Stop game by <a target="blank" href="https://solnet.co.nz">solnet</a></div>
+        <ul class="mdl-mini-footer__link-list">
+          <li> <a target="blank" href="https://github.com/solnet-aquarium/solnet-stop-game">play with the source code</a></li>
+        </ul>
+      </div>
+    </footer>
+    <dialog class="mdl-dialog">
+      <h4 class="mdl-dialog__title">STOP!</h4>
+      <div class="mdl-dialog__content">
+        <p>
+          Someone was faster than you! :)
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button close">Close</button>
+      </div>
+    </dialog>
   </div>
-  <div id="score"> 
-
-  </div>
-  <div id="introduction">
-    <div id="message">
-      Whats your name?
-      <input type="text" id="userName" />
-      <button id="btnStart">go!</button>
-    </div>
-  </div>
-  <div id="gameBody">
-    <div id="message">
-      <label for="name">Name:</label>
-      <input type="text" id="name" />
-    </div>
-    <div id="message">
-      <label for="electronics">Electronic/gadgets:</label>
-      <input type="text" id="electronics" />
-    </div>
-    <div id="message">
-      <label for="place">Place in New Zealand:</label>
-      <input type="text" id="place" />
-      <button id="btnStop">STOP!</button>
-    </div>
-  </div>
-
-
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
   <script src="stop.js" async></script>
 </body>
