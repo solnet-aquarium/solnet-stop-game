@@ -79,7 +79,7 @@
 
     function getRoundDataUrl() {
         console.log(gameUrl + '/' + playerName);
-        return gameUrl + '/' + playerName + '/' + getRoundNumber() + '/';
+        return gameUrl + '/players/' + playerName + '/' + getRoundNumber() + '/';
     }
 
 }());
