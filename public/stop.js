@@ -54,8 +54,7 @@
         database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
             gameUrl = 'games/' + snapshot.key;
             database.ref(gameUrl + '/letter').on('value', function (snapshot) {
-                letterDiv.textContent = snapshot.val();
-                console.log(snapshot.val());
+                letterDiv.textContent = snapshot.val() !== null ? snapshot.val() : letterDiv.textContent;
             });
             database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
                 roundNumber = snapshot.val();
@@ -74,7 +73,6 @@
     }
 
     function getRoundNumber() {
-        console.log(roundNumber);
         return roundNumber;
     }
 
