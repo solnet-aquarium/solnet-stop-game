@@ -24,7 +24,7 @@ To guide you modify this game with your own rules or new features we wrote this 
   Access stop game from your mobile [https://goo.gl/xn1hdz](https://goo.gl/xn1hdz)
   Or use your mobile device to scan this.
 
-  ![QR Code](https://github.com/solnet-aquarium/solnet-stop-game/blob/master/public/images/Stop_Game.png){:height="50%" width="50%"}
+  ![QR Code](https://github.com/solnet-aquarium/solnet-stop-game/blob/master/public/images/QR_small.png)
 
   Check how is the rounds from your Desktop or Tablet [https://goo.gl/UBv39J](https://goo.gl/UBv39J)
 
