@@ -21,12 +21,12 @@ To guide you modify this game with your own rules or new features we wrote this 
   The player that gets most correct words in the least amount of time wins!
   Easy right? Let's play at home.
 
-  Access stop game from your mobile [https://goo.gl/xn1hdz](https://goo.gl/xn1hdz)
+  - Access stop game from your mobile [https://goo.gl/xn1hdz](https://goo.gl/xn1hdz)
   Or use your mobile device to scan this.
 
   <img width="50%" height="50%" src="https://github.com/solnet-aquarium/solnet-stop-game/blob/master/public/images/QR_small.png"/>
 
-  Check how is the rounds from your Desktop or Tablet [https://goo.gl/UBv39J](https://goo.gl/UBv39J)
+  - Check how is the scores from your Desktop or Tablet at [https://goo.gl/UBv39J](https://goo.gl/UBv39J)
 
 
 ### Creative process ###
