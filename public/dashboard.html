@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html data-ng-app="dashboardApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="mdl-layout mdl-js-layout">
         <header class="mdl-layout__header">
@@ -17,26 +15,40 @@
                 Dashboard - Players
             </div>
         </header>
-        <main class="mdl-layout__content" style="flex: 1 0 auto;">
-            <div id="card" class="center_button">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="btnAddGame" onclick="addGame()">Show round 1</button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="btnAddGame" onclick="addGame()">Show round 2</button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="btnAddGame" onclick="addGame()">Show round 3</button>
-            </div>
+        <main data-ng-controller="DashboardController as dashboard" class="mdl-layout__content" style="flex: 1 0 auto;">
             <table class="mdl-data-table mdl-js-data-table">
                 <thead>
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric">Player</th>
-                        <th>Name of a person</th>
-                        <th>Electronic/gadget</th>
-                        <th>NZ Person</th>
-                        <th>NZ Place</th>
+                        <th class="mdl-data-table__cell--non-numeric">Name of a person</th>
+                        <th class="mdl-data-table__cell--non-numeric">Electronic/gadget</th>
+                        <th class="mdl-data-table__cell--non-numeric">NZ Person</th>
+                        <th class="mdl-data-table__cell--non-numeric">NZ Place</th>
                         <th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr ng-repeat="player in getPlayers()">
+                        <td class="mdl-data-table__cell--non-numeric">{{player.playerName}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div ng-repeat="round in player.rounds">{{round.name}} </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div ng-repeat="round in player.rounds">{{round.electronics}} </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div ng-repeat="round in player.rounds">{{round.famousPerson}} </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div ng-repeat="round in player.rounds">{{round.place}} </div>
+                        </td>
+                        <td>{{player.score}}</td>
+                    </tr>
                 </tbody>
             </table>
+            <div class="center_button">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="btnAddGame" ng-click="dashboard.loadResults()">Update results</button>
+            </div>
         </main>
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
@@ -48,8 +60,8 @@
         </footer>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
-<script src="dashboard.js" async></script>
-
+<script src="dashboard.js"></script>
 </html>
