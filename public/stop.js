@@ -11,7 +11,8 @@
     firebase.initializeApp(config);
     var database = firebase.database(),
         dialog = document.querySelector('dialog'),
-        roundNumber, unsubscribeStop, gameKey, playerName, gameUrl, roundDataUrl;
+        letterDiv = document.getElementById('letterDiv'),
+        letter, roundNumber, unsubscribeStop, gameKey, playerName, gameUrl, roundDataUrl;
     dialog.querySelector('.close').addEventListener('click', function () {
         dialog.close();
     });
@@ -51,6 +52,10 @@
         playerName = document.getElementById('userName').value;
         database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
             gameUrl = 'games/' + snapshot.key;
+            database.ref(gameUrl + '/letter').on('value', function (snapshot) {
+                letterDiv.textContent = snapshot.val();
+                console.log(snapshot.val());
+            });
             database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
                 roundNumber = snapshot.val();
                 createNewRound();
