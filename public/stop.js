@@ -16,6 +16,7 @@
     dialog.querySelector('.close').addEventListener('click', function () {
         dialog.close();
     });
+    dialogPolyfill.registerDialog(dialog);
     document.getElementById('gameBody').style.display = 'none';
     document.getElementById('name').addEventListener('keyup', addRoundData);
     document.getElementById('electronics').addEventListener('keyup', addRoundData);
