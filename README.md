@@ -43,6 +43,7 @@ To guide you modify this game with your own rules or new features we wrote this 
   You will need to create a firebase account:
   - A Google Account, which means youraccount@gmail.com is valid
   - After that just [watch this video](https://youtu.be/iosNuIdQoy8?list=PLl-K7zZEsYLmOF_07IayrTntevxtbUxDL) that helps you to understand how this service works.
+  - Install [Git](https://www.visualstudio.com/learn-git/)
   - Install the [Node.js v6](https://nodejs.org) in your machine.
   - Now open your terminal window e navigate to the directory like.
       ```
@@ -68,6 +69,7 @@ To guide you modify this game with your own rules or new features we wrote this 
   - *Firebase* - is a mobile and web application development platform developed by Firebase, Inc. in 2011, then acquired by Google in 2014, our game runs on this platform.
   - *Platform* - is a group of technologies that are used as a base upon which other applications, processes or technologies are developed. In personal computing, a platform is the basic hardware (computer) and software (operating system) on which software applications can be run.
   - *NodeJS* - is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side.
+  - *Git* - is a distributed version control system, it can be used as a server out of the box. Dedicated Git server software helps, amongst other features, to add access control, display the contents of a Git repository via the web, and help managing multiple repositories.
   - *Cloud Solutions* - is a type of computing that relies on sharing computing resources rather than having local servers or personal devices to handle applications.
 
 
