@@ -12,6 +12,7 @@
     var database = firebase.database(),
         dialog = document.querySelector('dialog'),
         letterDiv = document.getElementById('letterDiv'),
+        scoreDiv = document.getElementById('score'),
         letter, roundNumber, unsubscribeStop, gameKey, playerName, gameUrl, roundDataUrl;
     dialog.querySelector('.close').addEventListener('click', function () {
         dialog.close();
@@ -60,6 +61,11 @@
                 roundNumber = snapshot.val();
                 createNewRound();
             });
+            database.ref(gameUrl + '/players/' + playerName + '/score').on('value', function (snapshot) {
+                if (snapshot.val()) {
+                    scoreDiv.innerText = 'Score: ' + snapshot.val();
+                }
+            });
         });
         document.getElementById('gameBody').style.display = 'block';
         document.getElementById('introduction').style.display = 'none';
@@ -77,8 +83,6 @@
     }
 
     function getRoundDataUrl() {
-        console.log(gameUrl + '/' + playerName);
         return gameUrl + '/players/' + playerName + '/' + getRoundNumber() + '/';
     }
-
 }());
