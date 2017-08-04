@@ -18,9 +18,9 @@
                 if (game.players) {
                     var arrayPlayers = Object.keys(game.players).map(function (key) {
                         return {
-                            'rounds': game.players[key],
+                            'rounds': game.players[key].rounds,
                             'playerName': key,
-                            'score':game.players[key].score
+                            'score': game.players[key].score
                         };
                     });
                     $scope.$apply(function () {
