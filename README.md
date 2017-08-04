@@ -37,7 +37,7 @@ To guide you modify this game with your own rules or new features we wrote this 
 ### Learn ###
 
   We use javascript to write this game, but is not hard to learn, you can learn Javascript for free.
-  You can start learn using [Microsoft Academy for absolute beginners] (https://mva.microsoft.com/en-us/training-courses/javascript-fundamentals-for-absolute-beginners-14194).
+  You can start learn using [Microsoft Academy for absolute beginner](https://mva.microsoft.com/en-us/training-courses/javascript-fundamentals-for-absolute-beginners-14194).
 
 ### Setup ###
 
