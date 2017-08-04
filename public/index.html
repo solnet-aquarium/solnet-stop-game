@@ -82,19 +82,24 @@
         </ul>
       </div>
     </footer>
-    <dialog class="mdl-dialog">
+    <dialog id="dialogLooser" class="mdl-dialog">
       <h4 class="mdl-dialog__title">STOP!</h4>
       <div class="mdl-dialog__content">
         <p>
           <h5>Someone was faster than you! :(</h5>
-          Clear the screen for the next round and wait for the next letter!
+          Get ready for the next letter!
         </p>
       </div>
-      <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button close">Close</button>
+    </dialog>
+    <dialog id="dialogWinner" class="mdl-dialog">
+      <h4 class="mdl-dialog__title">Yay!</h4>
+      <div class="mdl-dialog__content">
+        <p>
+          <h5>You finished first! :D</h5>
+          Get ready for the next letter!
+        </p>
       </div>
     </dialog>
-
   </div>
   <script src="dialog-polyfill.js"></script>
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
