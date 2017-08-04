@@ -16,6 +16,7 @@
     dialog.querySelector('.close').addEventListener('click', function () {
         dialog.close();
     });
+    dialogPolyfill.registerDialog(dialog);
     document.getElementById('gameBody').style.display = 'none';
     document.getElementById('name').addEventListener('keyup', addRoundData);
     document.getElementById('electronics').addEventListener('keyup', addRoundData);
@@ -53,8 +54,7 @@
         database.ref('games').orderByKey().limitToLast(1).on('child_added', function (snapshot) {
             gameUrl = 'games/' + snapshot.key;
             database.ref(gameUrl + '/letter').on('value', function (snapshot) {
-                letterDiv.textContent = snapshot.val();
-                console.log(snapshot.val());
+                letterDiv.textContent = snapshot.val() !== null ? snapshot.val() : letterDiv.textContent;
             });
             database.ref(gameUrl + '/roundNumber').on('value', function (snapshot) {
                 roundNumber = snapshot.val();
@@ -73,7 +73,6 @@
     }
 
     function getRoundNumber() {
-        console.log(roundNumber);
         return roundNumber;
     }
 

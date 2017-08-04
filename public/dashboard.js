@@ -19,7 +19,8 @@
                     var arrayPlayers = Object.keys(game.players).map(function (key) {
                         return {
                             'rounds': game.players[key],
-                            'playerName': key
+                            'playerName': key,
+                            'score':game.players[key].score
                         };
                     });
                     $scope.$apply(function () {
