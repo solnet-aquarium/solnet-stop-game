@@ -31,7 +31,6 @@
     }
 
     function stopGame(snapshot) {
-        console.log('sempre o q', snapshot.val());
         if (snapshot.val()) {
             dialogLooser.showModal();
         }
@@ -80,7 +79,6 @@
                     restart();
                 }
             });
-
             database.ref(gameUrl + '/players/' + playerName + '/score').on('value', function (snapshot) {
                 if (snapshot.val()) {
                     scoreDiv.innerText = 'Score: ' + snapshot.val();
