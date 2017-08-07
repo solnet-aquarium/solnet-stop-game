@@ -27,13 +27,11 @@
     document.getElementById('btnClear').addEventListener('click', clearFieldsClick);
 
     function createNewRound() {
-        database.ref(gameUrl + '/' + roundNumber + '/stop').on('value', stopGame);
-    }
-
-    function stopGame(snapshot) {
-        if (snapshot.val()) {
-            dialogLooser.showModal();
-        }
+        database.ref(gameUrl + '/' + roundNumber + '/stop').on('value', function (snapshot) {
+            if (snapshot.val()) {
+                dialogLooser.showModal();
+            }
+        });
     }
 
     function addRoundData($event) {
