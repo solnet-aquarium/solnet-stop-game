@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
   <link rel="icon" href="https://solnet.co.nz/solnet/icons/favicon.ico" type="image/x-icon">
-  
+
 </head>
 
 <body>
@@ -24,8 +24,6 @@
     <main class="mdl-layout__content" style="flex: 1 0 auto;">
       <div id="game">
       </div>
-      <div id="score">
-      </div>
       <div id="introduction">
         <div class="card">
           <h5>How to play?</h5>
@@ -34,13 +32,16 @@
         </div>
         <div class="card">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="userName">
+            <input autocomplete="off" class="mdl-textfield__input" type="text" id="userName">
             <label class="mdl-textfield__label" for="userName">Whats your name?</label>
           </div>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnStart">go!</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnStart">ready!</button>
         </div>
       </div>
       <div id="gameBody">
+        <div id="score" class="score">
+          Score:
+        </div>
         <div id="letterDiv" class="card">
           The letter is...
         </div>
@@ -52,19 +53,19 @@
 
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="name">
+            <input autocomplete="off" class="mdl-textfield__input" type="text" id="name">
             <label class="mdl-textfield__label" for="name">Name of a person:</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="electronics">
+            <input autocomplete="off" class="mdl-textfield__input" type="text" id="electronics">
             <label class="mdl-textfield__label" for="electronics">Electronic/gadget:</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="famousPerson">
+            <input autocomplete="off" class="mdl-textfield__input" type="text" id="famousPerson">
             <label class="mdl-textfield__label" for="famousPerson">Famous New Zealand person:</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="place">
+            <input autocomplete="off" class="mdl-textfield__input" type="text" id="place">
             <label class="mdl-textfield__label" for="place">Place in New Zealand:</label>
           </div>
         </div>
@@ -77,19 +78,26 @@
       <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">Stop game by <a target="blank" href="https://solnet.co.nz">solnet</a></div>
         <ul class="mdl-mini-footer__link-list">
-          <li> <a target="blank" href="https://github.com/solnet-aquarium/solnet-stop-game">play with the source code</a></li>
+          <li> <a target="blank" href="https://github.com/solnet-aquarium/solnet-stop-game">source code</a></li>
         </ul>
       </div>
     </footer>
-    <dialog class="mdl-dialog">
+    <dialog id="dialogLooser" class="mdl-dialog">
       <h4 class="mdl-dialog__title">STOP!</h4>
       <div class="mdl-dialog__content">
         <p>
-          Someone was faster than you! :)
+          <h5>Someone was faster than you! :(</h5>
+          Get ready and wait for the next letter...
         </p>
       </div>
-      <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button close">Close</button>
+    </dialog>
+    <dialog id="dialogWinner" class="mdl-dialog">
+      <h4 class="mdl-dialog__title">Yay!</h4>
+      <div class="mdl-dialog__content">
+        <p>
+          <h5>You finished first! :D</h5>
+          Get ready and wait for the next letter...
+        </p>
       </div>
     </dialog>
   </div>

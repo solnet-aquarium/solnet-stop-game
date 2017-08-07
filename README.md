@@ -31,10 +31,13 @@ To guide you modify this game with your own rules or new features we wrote this 
 
 ### Creative process ###
 
+  When we tried to create this game we had the idea of write a very simple game with less than 100 lines of code.
+
 
 ### Learn ###
 
-  - We use javascript to write this game
+  We use javascript to write this game, but is not hard to learn, you can learn Javascript for free.
+  You can start learn using [Microsoft Academy for absolute beginner](https://mva.microsoft.com/en-us/training-courses/javascript-fundamentals-for-absolute-beginners-14194).
 
 ### Setup ###
 
@@ -82,3 +85,23 @@ To guide you modify this game with your own rules or new features we wrote this 
    - [Code.org](http://code.org)
    - [Aotearoa Code club](https://codeclub.nz/)
    - Share what you learn, you will learn much quicker.
+
+### Can you write a cool 2D game in Javascript? ###
+
+Yes, We support the idea of write your next game in Javascript using a more sophisticated library that will make you achieve more goals.
+
+Here's a list of libs we enjoy to work with.
+
+  - [http://www.pixijs.com/](http://www.pixijs.com/)
+  - [https://html5gameengine.com/](https://html5gameengine.com/) Huge list.
+
+
+### Team ###
+
+ <a href="https://github.com/eduardocurva"><img src="https://avatars2.githubusercontent.com/u/7608558?v=4&s=100"/>
+ <small>Eduardo Oliveira</small>
+ </a>
+
+ <a href="https://github.com/igorcosta"><img src="https://avatars2.githubusercontent.com/u/1169752?v=4&s=100"/>
+ <small>Igor Costa</small>
+ </a>

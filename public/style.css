@@ -67,6 +67,14 @@ body {
 .center_button {
     text-align: center;
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.score {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: x-large;
 }
 
 #letterDiv {
