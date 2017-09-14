@@ -50,19 +50,20 @@ To guide you modify this game with your own rules or new features we wrote this 
 - Install the [Node.js v6](https://nodejs.org) in your machine.
 - Now open your terminal window e navigate to the directory like.
 
-      ```
-        //For windows
-        cd c:/
-        mkdir mycoolproject
-        cd mycoolproject
-        npm install -g firebase-tools
+```
+  // Windows (command)
+  $ cd c:/
+  $ mkdir mycoolproject
+  $ cd mycoolproject
+  $ npm install -g firebase-tools
 
-        // For mac or Linux
-        cd ˜/
-        mkdir mycoolproject
-        cd mycoolproject
-        npm install -g firebase-tools
-      ```
+  // Mac OS or Linux (terminal)
+  $ cd ˜/
+  $ mkdir mycoolproject
+  $ cd mycoolproject
+  $ npm install -g firebase-tools
+```
+
 - Now you're ready to watch [this video](https://www.youtube.com/watch?v=k1D0_wFlXgo) recorded from Google Engineers.
 - Good luck!
 
